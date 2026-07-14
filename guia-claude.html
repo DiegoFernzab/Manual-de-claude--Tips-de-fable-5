@@ -69,7 +69,7 @@ claude</div>
     <details class="paso-det reveal">
       <summary><span class="p-num">0.2</span> Tu primer CLAUDE.md — la memoria del proyecto <span class="p-flecha">→</span></summary>
       <div class="paso-cuerpo">
-        <p>El archivo <b>CLAUDE.md</b> en la raíz del proyecto es lo que Claude Code lee al arrancar cada sesión: tus reglas, tu stack, tus convenciones. Es la diferencia entre re-explicar el proyecto cada día y que la sesión arranque sabiendo dónde está parada. Genera el primero con:</p>
+        <p>El archivo <b>CLAUDE.md</b> en la raíz del proyecto es lo que Claude Code lee al arrancar cada sesión: tus reglas, tu stack, tus convenciones. Es la diferencia entre reexplicar el proyecto cada día y que la sesión arranque sabiendo dónde está parada. Genera el primero con:</p>
         <div class="bloque-codigo"><button class="btn-copiar" type="button">copiar</button>/init</div>
         <p>Y luego edítalo (con <span style="font-family:var(--mono)">/memory</span> o a mano) para que tenga tus reglas de trabajo. Este es el mío como punto de partida:</p>
         <div class="bloque-codigo"><button class="btn-copiar" type="button">copiar</button><span class="cm"># Reglas de trabajo</span>
@@ -77,7 +77,7 @@ claude</div>
 2. Nunca crear archivos o módulos fuera de lo acordado en el plan.
 3. Al terminar cada sesión: actualizar HISTORIAL.md con qué se hizo y qué quedó pendiente.
 4. Todo endpoint nuevo nace con su validación y sus permisos.
-5. Si algo falla dos veces seguidas: parar y proponerme un re-planteo, no insistir.</div>
+5. Si algo falla dos veces seguidas: parar y proponerme un replanteo, no insistir.</div>
         <p><b>Regla de oro del CLAUDE.md:</b> corto y accionable. Un CLAUDE.md de 300 líneas se ignora igual que uno vacío — cada línea debe ser una regla que de verdad quieres que se cumpla en cada sesión.</p>
       </div>
     </details>
@@ -199,7 +199,7 @@ Un CRÍTICO abierto bloquea el deploy.</div>
     <div class="sec-head reveal">
       <div class="eyebrow">Recomendación · El mapa antes del territorio</div>
       <h2>Pídele el grafo de tu código</h2>
-      <p>Un agente sin mapa re-descubre tu arquitectura cada sesión, archivo por archivo — lento, caro y propenso a romper cosas que no sabía que se conectaban. La solución no requiere instalar nada: es un prompt.</p>
+      <p>Un agente sin mapa redescubre tu arquitectura cada sesión, archivo por archivo — lento, caro y propenso a romper cosas que no sabía que se conectaban. La solución no requiere instalar nada: es un prompt.</p>
     </div>
     <div class="reveal">
       <div class="bloque-codigo"><button class="btn-copiar" type="button">copiar</button>Genera un archivo CODEBASE_MAP.md con el mapa de este proyecto:
@@ -214,7 +214,7 @@ Un CRÍTICO abierto bloquea el deploy.</div>
 
 Al terminar, agrega una línea al CLAUDE.md: "Antes de modificar código,
 consulta CODEBASE_MAP.md para conocer el impacto del cambio."</div>
-      <p style="max-width: 720px; color: var(--tinta-suave); font-size: 15px;">El resultado: cada sesión nueva lee el mapa en segundos en vez de explorar a ciegas, y tú ganas el documento de arquitectura que nunca escribiste. Regenéralo cuando el proyecto cambie de forma. Para proyectos de <b>500+ archivos</b>, existen herramientas del ecosistema que pre-indexan el grafo completo (símbolos, llamadas, dependencias) y lo sirven por MCP — valen la pena a esa escala, no antes; búscalas como "code graph MCP".</p>
+      <p style="max-width: 720px; color: var(--tinta-suave); font-size: 15px;">El resultado: cada sesión nueva lee el mapa en segundos en vez de explorar a ciegas, y tú ganas el documento de arquitectura que nunca escribiste. Regenéralo cuando el proyecto cambie de forma. Para proyectos de <b>500+ archivos</b>, existen herramientas del ecosistema que preindexan el grafo completo (símbolos, llamadas, dependencias) y lo sirven por MCP — valen la pena a esa escala, no antes; búscalas como "code graph MCP".</p>
     </div>
   </div>
 </section>

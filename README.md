@@ -1,1 +1,0 @@
-# Manual-de-claude--Tips-de-fable-5
