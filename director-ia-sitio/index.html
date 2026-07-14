@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Director de IA — La habilidad no es usar IA. Es dirigirla.</title>
+<meta name="description" content="Guía gratuita para dirigir modelos de IA: 4 niveles de director, 7 errores que cuestan tiempo y plata, y rutas para ingenieros y no ingenieros. Aprendido en la práctica.">
+<!-- EDITA: reemplaza TU-URL.vercel.app por la URL final al desplegar -->
+<meta property="og:title" content="El Director de IA — La habilidad no es usar IA. Es dirigirla.">
+<meta property="og:description" content="4 niveles de director, 7 errores que cuestan tiempo y plata, y una ruta para quien no es ingeniero. Guía gratuita, aprendida en la práctica.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://TU-URL.vercel.app/">
+<meta property="og:image" content="https://TU-URL.vercel.app/og.png">
+<meta property="og:locale" content="es_CO">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#top">EL DIRECTOR DE IA <span class="chip">MANUAL DE VUELO</span></a>
+    <div class="nav-links">
+      <a href="#ecuacion">La idea</a>
+      <a href="#niveles">Niveles</a>
+      <a href="#errores">Los 7 errores</a>
+      <a href="#principios">Principios</a>
+      <a class="cta-alt" href="guia-claude.html">Guía técnica</a>
+      <a class="cta" href="sin-codigo.html">No soy ingeniero</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero grande" id="top">
+  <div class="container">
+    <div class="hero-tag">GUÍA GRATUITA · <b>APRENDIDA A GOLPES PARA QUE TÚ NO TENGAS QUE HACERLO</b></div>
+    <h1>La habilidad no es <span class="tachado">usar IA</span>.<br>Es <span class="resalta">dirigirla</span>.</h1>
+    <p class="lede">El modelo ya es potente. El cuello de botella eres tú: el contexto que le das, el tamaño de lo que le pides y lo que verificas antes de confiar. Elige tu ruta — las dos parten de la misma base.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primario" href="sin-codigo.html">No soy ingeniero → empieza aquí</a>
+      <a class="btn btn-tinta" href="guia-claude.html">Dirijo código → guía de Claude Code</a>
+      <a class="btn btn-secundario" href="#diagnostico">Descubrir mi nivel (1 min)</a>
+    </div>
+    <span class="aviso-universal">◈ Los principios de esta página aplican a <b>cualquier IA</b> — Claude, ChatGPT, Gemini, la que uses.</span>
+  </div>
+</header>
+
+<!-- ============ LA ECUACIÓN ============ -->
+<section class="alt" id="ecuacion">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">La idea central</div>
+      <h2>El resultado no depende solo del modelo</h2>
+      <p>Dos personas con el mismo modelo obtienen resultados radicalmente distintos. La diferencia está en los otros dos factores — y esos dos se entrenan.</p>
+    </div>
+    <div class="ecuacion reveal">
+      <div class="eq-card gris">
+        <span class="tag">Factor 1 · No lo controlas</span>
+        <h3>Capacidad del modelo</h3>
+        <p>Qué tan potente es la IA. Mejora sola cada pocos meses. Tu única decisión es cuál usar para qué.</p>
+      </div>
+      <div class="eq-op">×</div>
+      <div class="eq-card azul">
+        <span class="tag">Factor 2 · Se entrena</span>
+        <h3>Calidad de la dirección</h3>
+        <p>El contexto que das, cómo divides el trabajo, cuándo cierras una conversación, qué formato exiges.</p>
+      </div>
+      <div class="eq-op">×</div>
+      <div class="eq-card verde">
+        <span class="tag">Factor 3 · Se entrena</span>
+        <h3>Calidad de la verificación</h3>
+        <p>Qué revisas antes de confiar. Lo que separa "me ayudó" de "me metió en un problema con un cliente".</p>
+      </div>
+    </div>
+    <div class="ecuacion-nota reveal">
+      Es una multiplicación, no una suma: si la <b>verificación es cero</b>, el resultado confiable es cero — con el mejor modelo del mundo. Un director promedio con buen proceso le gana a un genio improvisando, porque la calidad final es <b>cuántos errores llegan vivos al final</b>.
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIAGNÓSTICO ============ -->
+<section id="diagnostico">
+  <div class="container">
+    <div class="quiz reveal">
+      <div class="eyebrow">Diagnóstico · 6 preguntas · 1 minuto</div>
+      <h2>¿Qué nivel de director eres hoy?</h2>
+      <p class="sub">Responde con lo que haces de verdad, no con lo que sabes que deberías hacer. Nadie te está mirando.</p>
+      <div class="quiz-form" id="quizForm">
+        <div class="quiz-progreso" id="quizProgreso"></div>
+        <div class="quiz-pregunta" id="quizPregunta"></div>
+        <div class="quiz-opciones" id="quizOpciones"></div>
+      </div>
+      <div class="quiz-resultado" id="quizResultado">
+        <div class="eyebrow">Tu resultado</div>
+        <div class="resultado-nivel" id="resNivel"></div>
+        <p id="resTexto"></p>
+        <a class="btn btn-primario" id="resLink" href="#nivel-1">Ir a mi nivel →</a>
+        <button class="quiz-reiniciar" id="quizReiniciar">volver a empezar</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NIVELES CONDENSADOS ============ -->
+<section class="alt" id="niveles">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">La ruta del director</div>
+      <h2>Cuatro niveles, de tu primer día a dirigir sistemas</h2>
+      <p>Cada nivel resume lo esencial; despliega el que te tocó en el diagnóstico. No te saltes niveles: los errores del 1 sin corregir se vuelven carísimos en el 3.</p>
+    </div>
+
+    <details class="nivel-det reveal" id="nivel-1">
+      <summary>
+        <span class="n-num">01</span>
+        <span>
+          <span class="n-etapa">TU PRIMER DÍA → PRIMERA SEMANA</span>
+          <span class="n-titulo" style="display:block">Piloto nuevo</span>
+          <span class="n-esencia">La IA no busca — redacta a partir de lo que le das. Háblale como a un colega brillante que llegó hoy y no sabe nada de ti.</span>
+        </span>
+        <span class="n-flecha">→</span>
+      </summary>
+      <div class="nivel-cuerpo">
+        <p style="margin-top: var(--s4); color: var(--tinta-suave); font-size: 15.5px;">El error de todo principiante es tratar a la IA como un buscador: tres palabras y a esperar magia. La IA no busca — <b style="color:var(--tinta)">redacta a partir de lo que le das</b>. Si le das poco, inventa el resto.</p>
+        <div class="practicas">
+          <div class="practica">
+            <h4><span class="p-clave">1.1</span>Contexto antes de la pregunta</h4>
+            <p>Antes de pedir, di quién eres, qué tienes y para qué lo necesitas. Treinta segundos de contexto ahorran cinco respuestas inútiles.</p>
+            <div class="malbien">
+              <div class="mb mal"><span class="mb-tag">✕ Así no</span>"hazme un post para instagram"</div>
+              <div class="mb bien"><span class="mb-tag">✓ Así sí</span>"Tengo una taquería en Bogotá, público joven, tono divertido. Post de Instagram para el lanzamiento de tacos al pastor este viernes. Máximo 3 líneas + 5 hashtags."</div>
+            </div>
+          </div>
+          <div class="practica">
+            <h4><span class="p-clave">1.2</span>Pide el formato de salida</h4>
+            <p>Si no dices cómo quieres la respuesta, recibes la que el modelo prefiera: normalmente más larga de lo que necesitas. <b>Longitud, estructura e idioma se piden, no se esperan.</b></p>
+            <div class="malbien">
+              <div class="mb bien"><span class="mb-tag">✓ Fórmulas útiles</span>"en máximo 5 líneas" · "en una tabla de 3 columnas" · "solo la lista, sin explicación" · "paso a paso numerado"</div>
+            </div>
+          </div>
+          <div class="practica">
+            <h4><span class="p-clave">1.3</span>Itera, no aceptes la primera</h4>
+            <p>La primera respuesta es un borrador, no la entrega. Corregir es más barato que reempezar: "más corto", "más formal", "cambia el ejemplo 2", "ahora en tono de venta".</p>
+            <p><b>Regla:</b> si la respuesta está al 70%, pide el ajuste del 30%. Si está por debajo del 50%, el problema fue tu pedido — mejora el pedido, no la paciencia.</p>
+          </div>
+          <div class="practica">
+            <h4><span class="p-clave">1.4</span>Una cosa a la vez</h4>
+            <p>Pedir cinco cosas en un mensaje produce cinco respuestas mediocres. Pide una, ajústala, y sigue con la siguiente ya con ese contexto ganado.</p>
+          </div>
+          <div class="practica">
+            <h4><span class="p-clave">1.5</span>La regla de oro: suena igual de segura cuando inventa</h4>
+            <p>La IA no dice "no sé" por defecto — rellena los huecos con cosas plausibles, en el mismo tono confiado. <b>Todo dato verificable (cifras, leyes, precios, nombres, fechas) se verifica antes de usarse</b> en algo que importe.</p>
+            <p>Truco de piloto nuevo: pregúntale "¿qué tan seguro estás de esto y qué debería verificar yo?" — la respuesta te dice dónde mirar.</p>
+          </div>
+          <div class="practica">
+            <h4><span class="p-clave">1.6</span>Datos sensibles: piensa antes de pegar</h4>
+            <p>No pegues contraseñas, datos de clientes o información confidencial de tu empresa sin saber la política de datos de la herramienta que usas. Pregunta en tu empresa qué está permitido — y si es tu empresa, defínelo tú.</p>
+          </div>
+        </div>
+        <div class="nivel-cierre">
+          <div class="caja-errores">
+            <h5>Errores típicos del nivel 1</h5>
+            <ul>
+              <li>Prompts de 5 palabras y frustración con la respuesta genérica que provocan.</li>
+              <li>Copiar y usar datos, cifras o citas sin verificar ninguna.</li>
+              <li>Reempezar la conversación desde cero cada vez que algo sale regular.</li>
+              <li>Creer que la IA "sabe" de tu negocio sin que se lo hayas contado.</li>
+            </ul>
+          </div>
+          <div class="caja-pasas">
+            <h5>Pasas al nivel 2 cuando…</h5>
+            <ul>
+              <li>Tus prompts llevan contexto + objetivo + formato, siempre.</li>
+              <li>Corriges con instrucciones concretas en vez de reintentar a ciegas.</li>
+              <li>Verificas por reflejo cualquier dato que vayas a usar de verdad.</li>
+              <li>Puedes predecir, antes de enviar, si tu prompt va a dar buena respuesta.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="nivel-det reveal" id="nivel-2">
+      <summary>
+        <span class="n-num">02</span>
+        <span>
+          <span class="n-etapa">PRIMERAS SEMANAS → PRIMEROS MESES</span>
+          <span class="n-titulo" style="display:block">Operador</span>
+          <span class="n-esencia">Deja de gestionar mensajes y empieza a gestionar conversaciones. Aquí se deja de quemar tiempo y tokens.</span>
+        </span>
+        <span class="n-flecha">→</span>
+      </summary>
+      <div class="nivel-cuerpo">
+        <p style="margin-top: var(--s4); color: var(--tinta-suave); font-size: 15.5px;">Ya pides bien. Ahora el juego cambia: deja de gestionar <b style="color:var(--tinta)">mensajes</b> y empieza a gestionar <b style="color:var(--tinta)">conversaciones</b>. La mayor pérdida de tiempo y tokens de este nivel viene de conversaciones eternas y contaminadas — y de tareas grandes pedidas de un solo golpe.</p>
+        <div class="practicas">
+          <div class="practica">
+            <h4><span class="p-clave">2.1</span>Una tarea, una conversación</h4>
+            <p>Cada conversación acumula todo lo dicho — incluidos los errores ya corregidos y los temas abandonados. Mezclar el informe de ventas con el correo al proveedor y el plan de vacaciones degrada las tres cosas.</p>
+            <p><b>Regla:</b> tema nuevo = chat nuevo. Y si una conversación lleva muchas correcciones acumuladas, ciérrala: resume lo decidido en 5 líneas y arranca limpia con ese resumen.</p>
+          </div>
+          <div class="practica">
+            <h4><span class="p-clave">2.2</span>Divide antes de pedir</h4>
+            <p>"Hazme el plan de negocio completo" produce 10 páginas genéricas. El mismo trabajo en pasos — primero el análisis del cliente, luego la propuesta de valor, luego los números — produce algo usable, porque cada paso se corrige antes de contaminar el siguiente.</p>
+            <div class="malbien">
+              <div class="mb mal"><span class="mb-tag">✕ Así no</span>"créame toda la estrategia de marketing del año"</div>
+              <div class="mb bien"><span class="mb-tag">✓ Así sí</span>"Paso 1: con este contexto [pega contexto], dame 5 ángulos de campaña con pros y contras de cada uno. Después elegimos uno y lo desarrollamos."</div>
+            </div>
+          </div>
+          <div class="practica">
+            <h4><span class="p-clave">2.3</span>Muestra un ejemplo</h4>
+            <p>Describir un estilo toma tres párrafos y sale mal. Mostrarlo toma un pegado y sale bien: <b>"como este"</b> es la instrucción más poderosa que existe. Un correo tuyo, una propuesta que te gustó, un post que funcionó.</p>
+          </div>
+          <div class="practica">
+            <h4><span class="p-clave">2.4</span>Pide opciones con precio, no respuestas únicas</h4>
+            <p>Para decisiones, la pregunta correcta no es "¿qué hago?" sino <b>"dame 3 opciones con lo que gana, lo que cuesta y el riesgo de cada una, y tu recomendación"</b>. Te da el mapa completo y conserva la decisión donde debe estar: en ti.</p>
+          </div>
+          <div class="practica">
+            <h4><span class="p-clave">2.5</span>Dos intentos fallidos = re-plantear, no pelear</h4>
+            <p>Si corriges lo mismo dos veces y sigue mal, la tercera corrección en el mismo chat casi nunca funciona: el contexto ya está contaminado. <b>Cambia de estrategia, no de intensidad:</b> chat nuevo, problema re-explicado desde cero, idealmente con un ejemplo de lo que quieres.</p>
+          </div>
+          <div class="practica">
+            <h4><span class="p-clave">2.6</span>Configura una vez, aprovecha siempre</h4>
+            <p>Instrucciones que repites en cada chat ("respóndeme en español", "soy dueño de una pyme", "sé directo") van en las preferencias o instrucciones permanentes de la herramienta. Los proyectos o espacios de trabajo agrupan contexto que no quieres re-pegar. <b>Cinco minutos de configuración ahorran horas de repetición.</b></p>
+          </div>
+        </div>
+        <div class="nivel-cierre">
+          <div class="caja-errores">
+            <h5>Errores típicos del nivel 2</h5>
+            <ul>
+              <li>El chat eterno de 200 mensajes que mezcla cuatro temas y ya nadie entiende.</li>
+              <li>Pegar 40 páginas "por si acaso": el ruido entierra lo importante y quema tokens.</li>
+              <li>Corregir lo mismo cinco veces con creciente frustración (y creciente factura).</li>
+              <li>Pedir la tarea completa de un golpe y recibir un genérico de 10 páginas.</li>
+            </ul>
+          </div>
+          <div class="caja-pasas">
+            <h5>Pasas al nivel 3 cuando…</h5>
+            <ul>
+              <li>Sabes cuándo una conversación murió y la cierras sin dolor.</li>
+              <li>Divides tareas grandes en pasos por reflejo, antes de pedir.</li>
+              <li>Usas ejemplos y contexto curado — lo relevante, no todo.</li>
+              <li>Tus decisiones importantes pasan por "opciones con precio".</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="nivel-det reveal" id="nivel-3">
+      <summary>
+        <span class="n-num">03</span>
+        <span>
+          <span class="n-etapa">TRABAJO SERIO · RESULTADOS DE LOS QUE OTROS DEPENDEN</span>
+          <span class="n-titulo" style="display:block">Director de proyecto</span>
+          <span class="n-esencia">Nada se ejecuta sin plan aprobado, nada se entrega sin verificación externa. Aquí los errores dejan de costar minutos y empiezan a costar plata.</span>
+        </span>
+        <span class="n-flecha">→</span>
+      </summary>
+      <div class="nivel-cuerpo">
+        <p style="margin-top: var(--s4); color: var(--tinta-suave); font-size: 15.5px;">Aquí la IA deja de ser un asistente de tareas sueltas y se vuelve parte de tu proceso de producción — código, documentos, análisis, entregas a clientes. El salto es doble: <b style="color:var(--tinta)">nada se ejecuta sin plan aprobado</b>, y <b style="color:var(--tinta)">nada se entrega sin verificación externa</b>.</p>
+        <div class="practicas">
+          <div class="practica">
+            <h4><span class="p-clave">3.1</span>Plan primero, ejecución después</h4>
+            <p>Para todo trabajo no trivial, el flujo es: <b>"propón el plan y espera mi confirmación antes de ejecutar"</b>. El plan saca a la luz las decisiones ocultas que, si no, el modelo toma solo y en silencio a mitad del trabajo.</p>
+            <div class="malbien">
+              <div class="mb bien"><span class="mb-tag">✓ El prompt clave del nivel</span>"Antes de hacer nada: propónme el plan con pasos verificables, qué queda FUERA del alcance, y las decisiones que necesitas de mí como opciones A/B con tu recomendación. Espera mi ok."</div>
+            </div>
+          </div>
+          <div class="practica">
+            <h4><span class="p-clave">3.2</span>El estado vive en documentos, no en el chat</h4>
+            <p>El chat se contamina, se pierde, se acaba. Todo lo decidido se baja a un documento: el plan, las decisiones con su porqué, lo que quedó pendiente. La próxima sesión <b>arranca leyendo el documento, no recordando el chat</b>. Si solo existe en la conversación, no existe.</p>
+          </div>
+          <div class="practica">
+            <h4><span class="p-clave">3.3</span>La verificación nunca se delega al mismo modelo</h4>
+            <p>"Revísalo tú mismo" → "todo correcto ✓" es teatro: el modelo revisándose hereda sus propios errores. Verificación real, en orden de confiabilidad: <b>(1) ejecución real</b> — correr el código, probar el flujo, cotejar la cifra con la fuente; <b>(2) checklist externo</b> punto por punto exigiendo evidencia; <b>(3) una sesión nueva y fría</b> que critique el resultado sin el contexto de la original.</p>
+          </div>
+          <div class="practica">
+            <h4><span class="p-clave">3.4</span>Define "terminado" antes de empezar</h4>
+            <p>Sin definición de terminado, todo queda "casi listo" para siempre. Antes de arrancar, escribe el criterio: <b>"está terminado cuando [alguien puede hacer X] y [se verificó Y]"</b>. El truco del demo de 1 minuto: si no puedes demostrarlo en 60 segundos, no está terminado.</p>
+          </div>
+          <div class="practica">
+            <h4><span class="p-clave">3.5</span>Abogado del diablo antes de comprometerte</h4>
+            <p>Antes de firmar un diseño, un presupuesto o una promesa a un cliente, una sesión aparte: <b>"critica esta propuesta: supuestos no verificados, qué falla primero, qué alternativa más simple logra el 80%"</b>. Cuesta 15 minutos; el error que atrapa cuesta semanas.</p>
+          </div>
+          <div class="practica">
+            <h4><span class="p-clave">3.6</span>Modelo caro para pensar, económico para ejecutar</h4>
+            <p>No todo merece el modelo más potente. <b>Planear, diseñar y verificar</b> → el mejor modelo disponible. <b>Tareas mecánicas ya bien definidas</b> (reformatear, traducir, generar variaciones) → uno más económico. Es la diferencia entre pagar arquitecto y pagar arquitecto para pintar paredes.</p>
+          </div>
+        </div>
+        <div class="nivel-cierre">
+          <div class="caja-errores">
+            <h5>Errores típicos del nivel 3</h5>
+            <ul>
+              <li>Dejar que el modelo "aproveche y también arregle otras cosas" — alcance silencioso que rompe lo que funcionaba.</li>
+              <li>Confiar en el "ya lo revisé, todo correcto" del propio modelo.</li>
+              <li>Entregar a un cliente algo probado solo en el caso feliz.</li>
+              <li>Tener el proyecto entero viviendo en un chat de dos semanas.</li>
+            </ul>
+          </div>
+          <div class="caja-pasas">
+            <h5>Pasas al nivel 4 cuando…</h5>
+            <ul>
+              <li>Nada llega al cliente o a producción sin verificación externa al modelo.</li>
+              <li>Tus proyectos tienen documentos vivos que cualquier sesión puede retomar.</li>
+              <li>Planeas con el modelo, pero las decisiones quedan escritas y son tuyas.</li>
+              <li>Sabes cuánto te cuesta (tiempo + tokens) cada tipo de tarea.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="nivel-det reveal" id="nivel-4">
+      <summary>
+        <span class="n-num">04</span>
+        <span>
+          <span class="n-etapa">2+ AÑOS · QUIERES HACERLO MEJOR, NO SOLO MÁS</span>
+          <span class="n-titulo" style="display:block">Director de sistemas</span>
+          <span class="n-esencia">Ya no escribes buenos prompts — construyes sistemas que producen buenos resultados aunque el prompt del día sea mediocre.</span>
+        </span>
+        <span class="n-flecha">→</span>
+      </summary>
+      <div class="nivel-cuerpo">
+        <p style="margin-top: var(--s4); color: var(--tinta-suave); font-size: 15.5px;">El director avanzado ya no escribe buenos prompts — <b style="color:var(--tinta)">construye sistemas que producen buenos resultados aunque el prompt del día sea mediocre</b>. Su trabajo se parece menos a chatear y más a diseñar el proceso. Y sabe la verdad incómoda del oficio: cuando el resultado es malo, el 70% de las veces el problema fue la dirección, no el modelo.</p>
+        <div class="practicas">
+          <div class="practica">
+            <h4><span class="p-clave">4.1</span>Construye método reutilizable, no prompts sueltos</h4>
+            <p>Todo lo que funcionó dos veces se convierte en plantilla, manual o instrucción permanente: cómo se planea, cómo se critica, cómo se verifica, cómo se cierra una sesión. <b>El conocimiento vive en archivos que cualquier sesión — y cualquier persona de tu equipo — puede usar</b>, no en tu memoria de qué prompt funcionó aquella vez.</p>
+          </div>
+          <div class="practica">
+            <h4><span class="p-clave">4.2</span>Arquitectura de dos niveles</h4>
+            <p>El patrón de máxima calidad con presupuesto real: <b>el modelo fuerte (o tú) piensa, planea y verifica; el ejecutor teclea dentro de rieles</b> — pasos pequeños, con criterio de verificación explícito por paso. Un ejecutor al que no le confiarías el diseño produce trabajo de producción, porque nunca tuvo la oportunidad de diseñar mal.</p>
+            <p><a href="guia-claude.html#dos-niveles">Ver el ejemplo real con subagentes y hooks →</a></p>
+          </div>
+          <div class="practica">
+            <h4><span class="p-clave">4.3</span>Ajusta el tamaño del paso al ejecutor</h4>
+            <p>La perilla maestra del director: modelo potente → tareas grandes con revisión al final; modelo limitado → una función, un párrafo, un paso a la vez, revisando cada salida. <b>La señal de que el paso quedó grande: el modelo empieza a inventar</b> — cosas que no le diste, soluciones que no pediste. La respuesta no es regañarlo: es partir el paso en dos.</p>
+          </div>
+          <div class="practica">
+            <h4><span class="p-clave">4.4</span>Delega con permisos limitados, nunca con superusuario</h4>
+            <p>Cuando conectas la IA a tus sistemas (correo, archivos, código que se ejecuta solo), <b>el agente debe tener los permisos mínimos para su tarea — jamás heredar todos los tuyos</b>. Y las acciones irreversibles (enviar, borrar, pagar, publicar) siempre pasan por confirmación humana. Los casos legales de agentes que prometieron de más ya existen; la empresa responde por lo que su agente dice.</p>
+          </div>
+          <div class="practica">
+            <h4><span class="p-clave">4.5</span>Mide para mejorar: retrabajos, tokens, tiempo</h4>
+            <p>Sin medir, "mejorar" es una sensación. Tres números bastan: <b>¿cuántas veces retrabajas la misma entrega? ¿cuánto cuesta en tokens cada tipo de tarea? ¿dónde se te va el tiempo — dirigiendo o corrigiendo?</b> Un retrabajo recurrente es un defecto del proceso, y los defectos de proceso se arreglan en el manual, no en el chat.</p>
+          </div>
+          <div class="practica">
+            <h4><span class="p-clave">4.6</span>Sabe cuándo NO usar IA — y enseña a otros</h4>
+            <p>Hay tareas donde verificar la salida cuesta más que hacer el trabajo directo: ahí la IA resta. Y la marca final del nivel 4: <b>la dirección se documenta y se transfiere</b>. Si mañana entrenas a alguien y en dos semanas dirige al 80% de tu nivel, construiste un sistema. Si no puede, construiste una dependencia de ti.</p>
+          </div>
+        </div>
+        <div class="nivel-cierre">
+          <div class="caja-errores">
+            <h5>Errores típicos del nivel 4</h5>
+            <ul>
+              <li>Sobre-automatizar: quitar la revisión humana de pasos que aún la necesitan.</li>
+              <li>Adoptar cada herramienta nueva por moda, sin un problema que la pida.</li>
+              <li>Ser el único que sabe dirigir — el sistema muere cuando te enfermas.</li>
+              <li>Culpar al modelo sin revisar primero la propia dirección.</li>
+            </ul>
+          </div>
+          <div class="caja-pasas">
+            <h5>Sigues creciendo cuando…</h5>
+            <ul>
+              <li>Cada lección aprendida termina en el manual, no solo en tu cabeza.</li>
+              <li>Tu proceso sobrevive al cambio de modelo, de herramienta y de proyecto.</li>
+              <li>Otros aprenden a dirigir con tu sistema más rápido de lo que tú aprendiste.</li>
+              <li>Puedes explicar, con números, qué te ahorra la IA y qué te cuesta.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ 7 ERRORES ============ -->
+<section id="errores">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Aplican a todos los niveles y a cualquier IA</div>
+      <h2>Los 7 errores que cuestan tiempo, tokens y plata</h2>
+      <p>Si el resultado fue malo, casi siempre uno de estos siete estuvo presente. Revísalos en orden antes de culpar al modelo.</p>
+    </div>
+    <div class="errores-grid">
+      <div class="error-card reveal">
+        <div class="en">1</div>
+        <div><h4>Contexto basura</h4><p class="sintoma">No dar nada (el modelo inventa) o pegarlo todo "por si acaso" (el ruido entierra la señal).</p><span class="costo">Costo: respuestas genéricas + tokens quemados</span></div>
+        <div class="fix"><span class="fx">El arreglo</span>Curar el contexto es TU trabajo: "¿qué necesitaría saber un colega brillante que llegó hoy?" — eso, exactamente eso.</div>
+      </div>
+      <div class="error-card reveal">
+        <div class="en">2</div>
+        <div><h4>El paso gigante</h4><p class="sintoma">"Hazme todo el sistema / todo el informe" en un solo pedido: salida enorme, genérica, con errores enterrados en la página 7.</p><span class="costo">Costo: horas revisando + retrabajos completos</span></div>
+        <div class="fix"><span class="fx">El arreglo</span>Divide en pasos que puedas verificar en minutos. Paso bien dimensionado = puedes decir "bien" o "mal" rápido y con certeza.</div>
+      </div>
+      <div class="error-card reveal">
+        <div class="en">3</div>
+        <div><h4>La sesión eterna</h4><p class="sintoma">Un chat de semanas que mezcla temas, arrastra correcciones viejas y confunde la versión 3 con la 7.</p><span class="costo">Costo: cada respuesta procesa TODO el historial</span></div>
+        <div class="fix"><span class="fx">El arreglo</span>Una tarea, una sesión. Al cerrar: resumen de 5 líneas guardado en un documento; la sesión nueva arranca de ahí, limpia.</div>
+      </div>
+      <div class="error-card reveal">
+        <div class="en">4</div>
+        <div><h4>Pelear con el modelo</h4><p class="sintoma">Corregir lo mismo por quinta vez, con mayúsculas y frustración, en el mismo chat contaminado.</p><span class="costo">Costo: 5 rondas de tokens + tu tarde entera</span></div>
+        <div class="fix"><span class="fx">El arreglo</span>Regla de los dos intentos: al segundo fallo, chat nuevo con el problema re-planteado desde cero y un ejemplo. Insistir multiplica el error.</div>
+      </div>
+      <div class="error-card reveal">
+        <div class="en">5</div>
+        <div><h4>Confiar en la auto-revisión</h4><p class="sintoma">"Revisa tu trabajo" → "todo correcto ✓". El modelo revisándose hereda sus propios errores.</p><span class="costo">Costo: el error llega al cliente con doble sello</span></div>
+        <div class="fix"><span class="fx">El arreglo</span>Verificación externa siempre: ejecutar/probar de verdad, checklist con evidencia, o una sesión fría que critique sin el contexto original.</div>
+      </div>
+      <div class="error-card reveal">
+        <div class="en">6</div>
+        <div><h4>Tomar la seguridad por verdad</h4><p class="sintoma">Suena idéntico cuando sabe y cuando inventa: cifras, leyes y citas plausibles pero falsas, con total confianza.</p><span class="costo">Costo: desde una pena con un cliente hasta un lío legal</span></div>
+        <div class="fix"><span class="fx">El arreglo</span>Todo dato que vayas a usar, se verifica en la fuente. Y pide siempre: "¿qué tan seguro estás y qué debería verificar yo?"</div>
+      </div>
+      <div class="error-card reveal">
+        <div class="en">7</div>
+        <div><h4>El chat como archivo</h4><p class="sintoma">Las decisiones y el estado del proyecto viven solo en la conversación: se contamina, se pierde, nadie puede retomarlo.</p><span class="costo">Costo: re-explicar todo + decidir dos veces</span></div>
+        <div class="fix"><span class="fx">El arreglo</span>Lo decidido se baja a documentos: qué, por qué, qué se descartó, qué sigue. El chat es el taller; el documento es la obra.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ANATOMÍA ============ -->
+<section class="alt" id="anatomia">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">La herramienta de bolsillo</div>
+      <h2>Anatomía de un buen pedido</h2>
+      <p>Seis piezas. No todas son obligatorias en cada mensaje — pero cuando una respuesta sale mal, casi siempre falta una de estas.</p>
+    </div>
+    <div class="anatomia">
+      <div class="anatomia-piezas reveal">
+        <div class="pieza"><span class="pk">CONTEXTO</span><span class="pd"><b>Quién eres y qué situación es.</b> Lo que un colega nuevo necesitaría saber.</span></div>
+        <div class="pieza"><span class="pk">OBJETIVO</span><span class="pd"><b>Qué quieres lograr</b> — el resultado, no la actividad. "Que el cliente renueve", no "un correo".</span></div>
+        <div class="pieza"><span class="pk">MATERIAL</span><span class="pd"><b>Lo que ya tienes:</b> datos, borradores, el ejemplo de "como este". Curado, no todo.</span></div>
+        <div class="pieza"><span class="pk">RESTRICCIONES</span><span class="pd"><b>Lo que NO puede hacer:</b> tono, límites, "sin inventar cifras".</span></div>
+        <div class="pieza"><span class="pk">FORMATO</span><span class="pd"><b>Cómo quieres la salida:</b> longitud, estructura, idioma, "solo la tabla".</span></div>
+        <div class="pieza"><span class="pk">VERIFICACIÓN</span><span class="pd"><b>Cómo sabrán ambos que quedó bien</b> — y qué debe señalarte para revisar.</span></div>
+      </div>
+      <div class="prompt-demo reveal">
+        <span class="cm">// Las 6 piezas en un pedido real:</span><br><br>
+        <span class="pl">[CONTEXTO]</span> Soy dueño de una distribuidora de alimentos en Bogotá, 12 empleados. Un cliente que representa el 20% de mis ventas lleva 45 días sin pagar la última factura.<br><br>
+        <span class="pl">[OBJETIVO]</span> Quiero cobrar sin dañar la relación — es buen cliente con mala racha, no un moroso crónico.<br><br>
+        <span class="pl">[MATERIAL]</span> Este es su último correo: [pegado]. Y así escribo yo: [ejemplo].<br><br>
+        <span class="pl">[RESTRICCIONES]</span> Sin amenazas legales, sin sonar desesperado, sin ofrecer descuento todavía.<br><br>
+        <span class="pl">[FORMATO]</span> 2 versiones del correo, máximo 120 palabras: una cordial-directa y una con plan de pagos. Con asunto.<br><br>
+        <span class="pl">[VERIFICACIÓN]</span> Antes de escribir, dime qué supuesto estás haciendo que yo deba confirmar.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRINCIPIOS ============ -->
+<section id="principios">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Para imprimir y pegar en la pared</div>
+      <h2>Los 10 principios del director</h2>
+    </div>
+    <div class="principios reveal">
+      <div class="principio"><span class="pn">01</span><p><b>Háblale como a un colega nuevo,</b> no como a un buscador.</p></div>
+      <div class="principio"><span class="pn">02</span><p><b>El contexto se cura:</b> lo relevante, no todo, no nada.</p></div>
+      <div class="principio"><span class="pn">03</span><p><b>Divide antes de pedir.</b> Pasos que puedas verificar en minutos.</p></div>
+      <div class="principio"><span class="pn">04</span><p><b>Una tarea, una conversación.</b> El tema nuevo estrena chat.</p></div>
+      <div class="principio"><span class="pn">05</span><p><b>Plan aprobado antes de ejecución</b> en todo lo que importe.</p></div>
+      <div class="principio"><span class="pn">06</span><p><b>Suena igual de segura cuando inventa.</b> Verifica lo verificable.</p></div>
+      <div class="principio"><span class="pn">07</span><p><b>La verificación es externa:</b> probar, cotejar, sesión fría. Nunca "revísate".</p></div>
+      <div class="principio"><span class="pn">08</span><p><b>Dos intentos fallidos = re-plantear,</b> nunca pelear con el modelo.</p></div>
+      <div class="principio"><span class="pn">09</span><p><b>Lo decidido se baja a documentos.</b> El chat es taller, no archivo.</p></div>
+      <div class="principio"><span class="pn">10</span><p><b>Si el resultado fue malo, revisa tu dirección primero.</b> El 70% de las veces era eso.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RUTAS ============ -->
+<section class="alt" id="rutas">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Elige tu camino</div>
+      <h2>La base es la misma. La práctica, la eliges tú.</h2>
+      <p>Las herramientas se vuelven obsoletas en meses — la base no. Estas dos rutas la aterrizan a tu realidad.</p>
+    </div>
+    <div class="banda-rutas reveal">
+      <a class="ruta-card humana" href="sin-codigo.html">
+        <span class="rc-tag">Sin código · Para cualquier persona</span>
+        <h3>No soy ingeniero</h3>
+        <p>Mi experiencia llegando al mundo de la IA empresarial, cómo pedirle información a una IA sin saber programar, y 15 casos de uso para tu primer proyecto — desde el Excel de gastos hasta la carta que nunca te sale.</p>
+        <span class="rc-ir">Empezar sin código →</span>
+      </a>
+      <a class="ruta-card tecnica" href="guia-claude.html">
+        <span class="rc-tag">Técnica · Claude Code</span>
+        <h3>Dirigir Claude Code</h3>
+        <p>Día 0 (instalación y primer proyecto), glosario, los comandos verificados contra la documentación oficial, el mapa del código como prompt, y la arquitectura de dos niveles con subagentes.</p>
+        <span class="rc-ir">Ir a la guía técnica →</span>
+      </a>
+    </div>
+    <div class="compromiso reveal" style="margin-top: var(--s6);">
+      <b>Compromiso del autor:</b> esta guía es gratuita y va a seguir creciendo. Compartiré mi experiencia en formato blog — a ver qué más me enseña esta plataforma.
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="f-grid">
+      <div>
+        <div class="f-logo">EL DIRECTOR DE IA</div>
+        <p>Manual de vuelo para dirigir modelos de IA — de tu primer día a dirigir sistemas. Aprendido en la práctica, documentado para que el siguiente lo aprenda más rápido.</p>
+        <p style="margin-top: 12px; font-size: 12.5px; opacity: .65;">Guía independiente. No afiliada a Anthropic ni a ningún proveedor de IA.</p>
+      </div>
+      <div>
+        <div class="f-titulo">Autor</div>
+        <p><b style="color:#f3f6f8;">Diego Fernando Zabala</b><br>Ing. de Sistemas · Pontificia Universidad Javeriana<br>Bogotá, Colombia</p>
+      </div>
+      <div>
+        <div class="f-titulo">Contacto</div>
+        <p><a href="mailto:za_diego@javeriana.edu.co">za_diego@javeriana.edu.co</a><br>
+        <a href="https://github.com/DiegoFernzab" target="_blank" rel="noopener">github.com/DiegoFernzab</a><br>
+        <a href="https://presentacion-personal-six.vercel.app/" target="_blank" rel="noopener">Portafolio</a></p>
+      </div>
+    </div>
+    <div class="f-contador">
+      <span>Esta guía fue creada el <b>14 de julio de 2026</b> · lleva viva <b id="diasViva">0</b> días</span>
+      <span>© 2026 Diego Fernando Zabala</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  /* ===== Contador de días ===== */
+  var creada = new Date(2026, 6, 14); /* 14 julio 2026 */
+  var dias = Math.max(0, Math.floor((Date.now() - creada.getTime()) / 86400000));
+  document.getElementById("diasViva").textContent = dias;
+
+  /* ===== Quiz ===== */
+  var preguntas = [
+    { q: "Cuando le pides algo a la IA, tu mensaje típico se parece más a…",
+      ops: [
+        { t: "Unas pocas palabras, como buscando en Google.", pts: 0 },
+        { t: "Una petición clara con algo de contexto de quién soy y qué necesito.", pts: 1 },
+        { t: "Contexto + objetivo + formato de salida, casi siempre.", pts: 2 },
+        { t: "Una plantilla que ya tengo armada para ese tipo de tarea.", pts: 3 } ] },
+    { q: "La primera respuesta no te convence. ¿Qué haces?",
+      ops: [
+        { t: "La uso igual, o me rindo y lo hago yo.", pts: 0 },
+        { t: "Reintento con otras palabras, a ver si sale mejor.", pts: 1 },
+        { t: "Pido el ajuste concreto: 'más corto', 'cambia el ejemplo 2'.", pts: 2 },
+        { t: "Si falla dos veces, re-planteo desde cero en un chat nuevo con un ejemplo.", pts: 3 } ] },
+    { q: "¿Cómo manejas tus conversaciones con la IA?",
+      ops: [
+        { t: "Tengo un chat gigante donde le pregunto de todo.", pts: 0 },
+        { t: "Abro chats nuevos a veces, sin mucha regla.", pts: 1 },
+        { t: "Una tarea, una conversación — casi siempre.", pts: 2 },
+        { t: "Cierro sesiones con un resumen de lo decidido, y la siguiente arranca de ese documento.", pts: 3 } ] },
+    { q: "La IA te da una cifra o un dato importante. ¿Qué haces con él?",
+      ops: [
+        { t: "Lo uso — para eso le pregunté.", pts: 0 },
+        { t: "Lo uso si suena razonable.", pts: 1 },
+        { t: "Verifico lo que voy a usar en algo que importe.", pts: 2 },
+        { t: "Verifico en la fuente y le pido que me diga qué tan segura está y qué revisar.", pts: 3 } ] },
+    { q: "Tienes un trabajo grande (informe, sistema, campaña completa). ¿Cómo lo pides?",
+      ops: [
+        { t: "Todo de una: 'hazme el informe completo'.", pts: 0 },
+        { t: "En dos o tres partes grandes.", pts: 1 },
+        { t: "En pasos pequeños, corrigiendo cada uno antes del siguiente.", pts: 2 },
+        { t: "Primero le pido el plan, lo apruebo, y después ejecutamos por pasos.", pts: 3 } ] },
+    { q: "¿Cómo compruebas que un trabajo hecho con IA quedó bien?",
+      ops: [
+        { t: "Le creo: si dice que está bien, está bien.", pts: 0 },
+        { t: "Le doy una leída por encima.", pts: 1 },
+        { t: "Lo pruebo o cotejo yo, punto por punto, contra lo que pedí.", pts: 2 },
+        { t: "Verificación externa siempre: probar de verdad + checklist + a veces una sesión fría que lo critique.", pts: 3 } ] }
+  ];
+  var niveles = [
+    { min: 0, max: 4, nombre: "Nivel 1 — Piloto nuevo", link: "#nivel-1",
+      texto: "Estás donde todos empezamos: tratando a la IA como un buscador. La buena noticia: este es el nivel donde una semana de práctica produce el salto más grande. Empieza por las claves del nivel 1 — sobre todo el contexto y la regla de oro." },
+    { min: 5, max: 9, nombre: "Nivel 2 — Operador", link: "#nivel-2",
+      texto: "Ya pides bien; tu pérdida está en la gestión de conversaciones: chats eternos, tareas gigantes, correcciones en bucle. El nivel 2 es donde se deja de quemar tiempo y tokens." },
+    { min: 10, max: 14, nombre: "Nivel 3 — Director de proyecto", link: "#nivel-3",
+      texto: "Diriges bien el día a día; tu frontera es el trabajo serio: plan aprobado, verificación externa, y el estado en documentos. Es el nivel donde los errores cuestan plata — y donde esta guía más te ahorra." },
+    { min: 15, max: 18, nombre: "Nivel 4 — Director de sistemas", link: "#nivel-4",
+      texto: "Ya diriges como profesional. Tu siguiente frontera no es mejorar prompts sino construir sistema: método reutilizable, dos niveles de modelos, métricas. Revisa el nivel 4 — y los 7 errores, que a este nivel se disfrazan mejor." }
+  ];
+  var idx = 0, puntos = 0;
+  var form = document.getElementById("quizForm");
+  var resultado = document.getElementById("quizResultado");
+  var elPregunta = document.getElementById("quizPregunta");
+  var elOpciones = document.getElementById("quizOpciones");
+  var elProgreso = document.getElementById("quizProgreso");
+
+  function pintarProgreso() {
+    elProgreso.innerHTML = "";
+    for (var i = 0; i < preguntas.length; i++) {
+      var d = document.createElement("div");
+      d.className = "paso" + (i <= idx ? " activo" : "");
+      elProgreso.appendChild(d);
+    }
+  }
+  function pintarPregunta() {
+    pintarProgreso();
+    var p = preguntas[idx];
+    elPregunta.textContent = (idx + 1) + ". " + p.q;
+    elOpciones.innerHTML = "";
+    p.ops.forEach(function(op) {
+      var b = document.createElement("button");
+      b.className = "quiz-op"; b.type = "button"; b.textContent = op.t;
+      b.addEventListener("click", function() {
+        puntos += op.pts; idx++;
+        if (idx < preguntas.length) pintarPregunta(); else mostrarResultado();
+      });
+      elOpciones.appendChild(b);
+    });
+  }
+  function mostrarResultado() {
+    var nivel = niveles[0];
+    for (var i = 0; i < niveles.length; i++) {
+      if (puntos >= niveles[i].min && puntos <= niveles[i].max) { nivel = niveles[i]; break; }
+    }
+    document.getElementById("resNivel").textContent = nivel.nombre;
+    document.getElementById("resTexto").textContent = nivel.texto;
+    var link = document.getElementById("resLink");
+    link.setAttribute("href", nivel.link);
+    link.addEventListener("click", function() {
+      var det = document.querySelector(nivel.link);
+      if (det && det.tagName === "DETAILS") det.open = true;
+    });
+    form.classList.add("oculto");
+    resultado.classList.add("visible");
+  }
+  document.getElementById("quizReiniciar").addEventListener("click", function() {
+    idx = 0; puntos = 0;
+    resultado.classList.remove("visible");
+    form.classList.remove("oculto");
+    pintarPregunta();
+  });
+  pintarPregunta();
+
+  /* ===== Reveal ===== */
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add("in"); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll(".reveal").forEach(function(el) { obs.observe(el); });
+})();
+</script>
+
+</body>
+</html>
